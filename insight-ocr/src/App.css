@@ -1,0 +1,34 @@
+.App {
+  max-width: 600px;
+  margin: auto;
+  padding: 1rem;
+  font-family: sans-serif;
+}
+
+.status {
+  font-style: italic;
+  margin: 1em 0;
+}
+
+input {
+  display: block;
+  margin-bottom: 1em;
+}
+
+section {
+  margin-top: 2em;
+}
+
+pre {
+  background: #f0f0f0;
+  padding: .5rem;
+  border-radius: 4px;
+  white-space: pre-wrap;
+}
+
+ul {
+  background: #f0f0f0;
+  padding: .5rem;
+  border-radius: 4px;
+  list-style-position: inside;
+}
