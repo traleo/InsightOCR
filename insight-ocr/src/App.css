@@ -1,8 +1,8 @@
 .App {
   max-width: 600px;
-  margin: auto;
+  margin: 2rem auto;
   padding: 1rem;
-  font-family: sans-serif;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .status {
@@ -12,23 +12,23 @@
 
 input {
   display: block;
-  margin-bottom: 1em;
+  margin: 1em auto;
 }
 
 section {
-  margin-top: 2em;
+  margin-top: 3em;
 }
 
-pre {
-  background: #f0f0f0;
-  padding: .5rem;
+pre, ul {
+  background-color: #444;
+  color: #fff;
+  padding: 10px;
   border-radius: 4px;
-  white-space: pre-wrap;
+  margin: 15px auto;
+  max-width: 600px;
+  text-align: left;
 }
 
 ul {
-  background: #f0f0f0;
-  padding: .5rem;
-  border-radius: 4px;
   list-style-position: inside;
 }
