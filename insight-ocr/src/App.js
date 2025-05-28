@@ -12,6 +12,7 @@ export default function App() {
   const [classifier, setClassifier] = useState(null);
   const [previewSrc, setPreviewSrc] = useState('');
   const [currentFile, setCurrentFile] = useState(null);
+  const [selectedLang, setSelectedLang] = useState('eng');
 
   useEffect(() => {
     mobilenet.load().then(m => setClassifier(m));
@@ -47,7 +48,7 @@ export default function App() {
 
     const { data: { text } } = await Tesseract.recognize(
       canvas,
-      'eng',
+      selectedLang,
       { logger: m => setStatus(`${m.status} ${(m.progress * 100).toFixed(1)}%`) }
     );
     setOcrText(text.trim());
@@ -79,18 +80,41 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>InsightOCR</h1>
+      <div className="header">
+        <img src="/eye.gif" alt="Logo" />
+        <h1>InsightOCR</h1>
+      </div>
+
+      <label htmlFor="lang-select">OCR Language:</label>
+      <select
+        id="lang-select"
+        value={selectedLang}
+        onChange={(e) => setSelectedLang(e.target.value)}
+      >
+        <option value="eng">English</option>
+        <option value="spa">Spanish</option>
+        <option value="fra">French</option>
+        <option value="deu">German</option>
+        <option value="ita">Italian</option>
+        <option value="vie">Vietnamese</option>
+        <option value="jpn">Japanese</option>
+        <option value="chi_sim">Chinese (Simplified)</option>
+      </select>
+
       <input type="file" accept="image/*" onChange={handleFile} />
+
       {previewSrc && (
         <div>
           <h3>Image Preview</h3>
-          <img src={previewSrc} alt="Processed preview" style={{ maxWidth: '100%' }} />
+          <img src={previewSrc} alt="Processed preview" style={{ maxWidth: '30%' }} />
           {currentFile && (
             <button onClick={runAnalysis}>Analyze</button>
           )}
         </div>
       )}
+
       <p className="status">{status}</p>
+
       <section className="ocr">
         <h2>OCR Result</h2>
         <pre>{ocrText}</pre>
@@ -109,6 +133,7 @@ export default function App() {
           </div>
         )}
       </section>
+
       <section className="classify">
         <h2>Top 3 Predictions</h2>
         <ul>
@@ -117,6 +142,12 @@ export default function App() {
           )}
         </ul>
       </section>
+
+      <footer className="footer">
+        <p>&copy; {new Date().getFullYear()} InsightOCR. All rights reserved.</p>
+      </footer>
     </div>
+
+
   );
 }

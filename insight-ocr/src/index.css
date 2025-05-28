@@ -1,6 +1,6 @@
 body {
-  background-color: #201c20;
-  color: #fff;
+  background-color: #000000;
+  color: #999999;
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
   letter-spacing: 1px;
@@ -8,22 +8,41 @@ body {
   padding: 0;
 }
 
-h1, h2, h3 {
-  font-family: 'Times New Roman', Times, serif;
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 30px;
+  padding-bottom: 120px;
 }
 
-h1 {
+.header img {
+  height: 60px;
+}
+
+.header h1 {
   font-size: 40px;
-  letter-spacing: 5px;
-  margin-top: 30px;
-  margin-bottom: 100px;
+  letter-spacing: 15px;
+  margin: 0;
+  font-family: 'Times New Roman', Times, serif;
+  color: #fff;
+  padding-left: 10px;
 }
 
 h2, h3 {
+  font-family: 'Times New Roman', Times, serif;
   font-size: 20px;
   letter-spacing: 3px;
   margin: 2rem 0;
   margin-top: 100px;
+}
+
+label {
+  margin: 1rem auto;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  padding-right: 10px;
 }
 
 .status {
@@ -69,15 +88,17 @@ button:hover {
   color: #b8b8b8;
 }
 
-img {
-  max-width: 80%;
-  border: 2px solid #444;
-  margin: 20px 0;
-}
-
 .button-container {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   margin-right: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 50px;
+  margin-top: 600px;
+  color: #fff;
+  font-size: 14px;
 }
